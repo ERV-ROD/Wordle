@@ -1,0 +1,28 @@
+@mixin box($width:100px,$height:100px,$padding:10px,$margin:auto){
+    width: $width;
+    height: $height;
+    padding: $padding;
+    margin: $margin;
+    display: flex;
+    max-width: auto;
+    max-height: auto;
+}
+
+@mixin center(){
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin formalFont($color,$size){
+    font-family: 'Mukta', sans-serif;
+    text-decoration: none;
+    font-size: $size;
+    color:$color;
+}
+
+@mixin gameFont($color,$size){
+    font-family: 'Acme', sans-serif;
+    text-decoration: none;
+    font-size: $size;
+    color:$color;
+}

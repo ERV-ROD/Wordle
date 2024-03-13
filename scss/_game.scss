@@ -1,0 +1,105 @@
+@import "mixins";
+@import "variables";
+
+body{
+    background-color:$backgroundColor;
+}
+
+
+.mainContainer{
+    @include box(35%,100vh,0);
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1200px) {
+    .mainContainer{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mainContainer{
+        width: 95%;
+        .table{
+            width: 80%;
+        }
+    }
+}
+
+.headers{
+    @include box(100%,10%,2%);
+    border-bottom: 1px solid $gray;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clearFont{
+    @include gameFont($gameColor,4rem);
+}
+
+.icon{
+    font-size: 3rem;
+    cursor:pointer;
+}
+
+.gameContainer{
+    @include box(100%,90%,2%);
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*Game board*/
+.table{
+    @include box(60%,60%,0);
+    flex-direction: column;
+}
+
+.row{
+    @include box(100%,16%,0,2px);
+}
+
+.cell{
+    @include box(20%,100%,.5%,.2rem);
+    @include formalFont(#fff,3.5rem);
+    @include center();
+    border: 1px solid $gray;
+}
+
+
+/*KeyBoard*/
+.keyboard{
+    @include box(100%,28%,0);  
+    flex-direction: column;
+}
+
+.keyRow{
+    @include box(100%,30%,0); 
+}
+
+.key{
+    @include box(9%,95%,.5%);
+    @include formalFont(#fff,1.9rem);
+    @include center();
+    border-radius: .6rem;
+    background-color: $gray;
+    cursor: pointer;    
+}
+
+.special{
+    width: 14%;
+}
+
+/*Colors Indicators*/
+
+.inWord{
+    background-color: $inWord;
+}
+
+.inPlace{
+    background-color: $inPlace;
+}
+
+.notInWord{
+    background-color: $notInWord;
+}
+

@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!------Fonts------->
+
+    <!--Formal-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet">
+
+    <!--Game font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <!--Styles-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--Kit font-awesome-->
+    <script src="https://kit.fontawesome.com/92129222ce.js" crossorigin="anonymous"></script>
+
+    <!--Scripts-->
+    <script src="js/Trie.js"></script>
+    <script src="js/wordsStorage.js"></script>
+    <script src="js/keyFunctions.js"></script>
+    <script src="js/confetti.js"></script>
+
+    <title>Wordle</title>
+</head>
+<body>
+    <div class="message not" id="not">
+        <p>Not in word list</p>
+    </div>
+
+    <div class="message end" id="end">
+        <p> The Word was <span id="word"></span><br/><i class="fa-solid fa-arrow-rotate-right icon" onclick="location.reload();"></i></p>
+    </div>
+    <div class="target" id="statistics">
+        <div class="targetHeader">
+            <i>  </i>
+            <p>WORDLE</p>   
+            <i class="fa-solid fa-xmark" onclick="hideStatistics()"></i>
+        </div>
+        <div class="statisticsArea">
+            <p>Summary</p>
+            <div class="gameRegister" id="gameRegister">
+
+            </div>
+            <p>Statistics</p>
+            <div class="history">
+                <div class="played">
+                    <p><span class="bigNumber" id="count">0</span><br/>Played</p>
+                </div>
+                <div class="percentage">
+                    <p><span class="bigNumber" id="percentage">0%</span><br/>Wins</p>
+                </div>
+            </div>
+            <div class="info">
+                <p class="littleText">Thanks for playing, this game is a personal project programmed by <a href="https://github.com/ERV-ROD?tab=overview&from=2022-04-01&to=2022-04-25" TARGET="blank">ERVIN</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="target" id="help">
+        <div class="targetHeader">
+            <i>  </i>
+            <p>WORDLE</p>   
+            <i class="fa-solid fa-xmark" onclick="hideHelp()"></i>
+        </div>
+        <div class="instructions">
+            <p class="big">How To Play?</p>
+            <div class="box1">
+                <ul>
+                    <li><div class="cube inPlace"><i class="fa-solid fa-check"></i></div> Green Color indicates that the letter is in the word and in the correct spot.</li>
+                    <li><div class="cube inWord"><i class="fa-solid fa-question"></i></div> Brown Color indicates that the letter is in the word but in the wrong spot.</li>
+                    <li><div class="cube notInWord"><i class="fa-solid fa-xmark"></i></div> Gray Color indicates that the letter isn't in the word in any spot. </li>
+                </ul>
+            </div>
+            <div class="box2">
+                <p>This game is a personal project <br/>inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="_blanck">WORDLE</a><br/><span class="minus">A new word every time you visit the page!</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!--? Main container, in this space all the elements of the game are located-->
+    <div class="mainContainer">
+        <!--? In this area you will find name of the game, the statistics and the menu.-->
+        <div class="headers clearFont">
+            <i class="fa-solid fa-circle-question icon" onclick="showHelp()"></i>
+            <p>WORDLE</p>   
+            <i class="fa-solid fa-bars icon" onclick="showStatistics()"></i>
+        </div>
+        <!--? This container includes the table and the keyboard-->
+        <div class="gameContainer">
+            <div class="table" id="table">
+
+            </div>
+            <div class="keyboard" id="keyboard">
+
+            </div>
+        </div>
+    </div>
+    <script src="js/gameBuilder.js"></script>
+    <script src="js/statistics.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,324 @@
+@import "mixins";
+@import "variables";
+
+
+/*Menus*/
+
+.target{
+    @include box(40%,96vh,0,0);
+    flex-direction: column;
+    position: fixed;
+    margin:2vh 30%;
+    border-radius: 1.5rem;
+    background-color: #3a3a3a;
+    display:none;
+    transition: all ease 1s;
+}
+
+.targetHeader{
+    @include box(100%,10%,2%,0);
+    background-color:#212123;
+    border-top-left-radius:1.5rem;
+    border-top-right-radius: 1.5rem;
+    justify-content: space-between;
+    align-items:center;
+    p{
+        @include gameFont(#f8f8f8,4rem);
+        margin-left: 2rem;
+    }
+    i{
+        font-size: 2.5rem;
+        color:$gameColor;
+        cursor:pointer;
+        margin-bottom: 2.5rem;
+        margin-right: .5rem;
+    }
+}
+
+.statisticsArea{
+    @include box(100%,90%,.5%);
+    flex-direction: column;
+    >p{
+        @include formalFont($gameColor,3rem);
+        font-weight: bold;
+        margin:2rem auto;
+    }
+    .gameRegister{
+        @include box(32%,60%,1%);
+        align-items: center;
+        background-color:#29292a;
+        border-radius: 1rem;
+        margin:1rem auto;
+        flex-direction: column;
+    }
+    .history{
+        @include box(90%,20%,.5%);
+        align-items: center;
+        border-radius: 1rem;
+        border: 2px solid $gray;
+        div{
+            @include box(50%,80%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            p{
+                @include formalFont($gameColor,2.5rem);
+                text-align: center;
+            }
+            .bigNumber{
+                font-size: 4rem;
+                font-weight: bolder;
+                margin-bottom: -1rem;
+            }
+
+        }
+    }
+    .info{
+        @include box(90%,12%,.5%);
+        align-items: center;
+        margin-top: 4rem;
+        line-height: 3rem;
+        a{
+            color:#ffffff;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.littleBox{
+    @include box(19%,100%,0,.2rem);
+    border-radius: .5rem;
+}
+
+.cube{
+    @include box(3rem,3rem,0,0);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color:$gameColor;
+    align-items: center;
+    border-radius: .5rem;
+
+}
+
+.littleText{
+    @include formalFont($gameColor,2rem);
+    text-align: center;
+}
+
+//===================================================
+
+/*Help*/
+
+.instructions{
+    @include box(100%,85%,0,0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    p{
+        @include formalFont($gameColor,2rem);
+        font-weight: bold;
+        margin:2rem auto 0 auto;
+        text-align: center;
+        line-height: 4rem;
+    }
+
+    .big{
+        font-size: 4rem;
+    }
+
+    a{
+        color:$gameColor;
+        line-height: 4rem;
+    }
+
+    ul{
+        list-style: none;
+        li{
+            @include formalFont($gameColor,2rem);
+            line-height: 3.5rem;
+            margin:2rem auto;
+            width: 95%;
+            margin-left: -1rem;
+        }
+    }
+}
+
+.box1{
+    @include box(95%,55%,.5%);
+    align-items: center;
+    margin:2rem auto;
+}
+.box2{
+    @include box(90%,20%,.5%);
+    align-items: center;
+    justify-content: center;
+    margin:2rem auto;
+    p{
+        font-size: 2.5rem;
+    }
+}
+
+//=================================================================
+/*Message*/
+.message{
+    @include box(40%,10vh,.5%);
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    position: fixed;
+    display: none;
+    animation-duration: 2s;
+}
+
+.end{
+    @include formalFont($gameColor,3rem);
+    text-align: center;
+    line-height: 4rem;
+    height:15vh;
+    margin:40vh 30%;
+    background-color: #2d2d2d;
+    animation-name:slide;
+}
+
+.not{
+    @include formalFont($backgroundColor,3rem);
+    background-color: #ffffffee;
+    margin:2rem 30%;
+    animation-name:slidein;
+}
+
+/*---------------Animaciones-------------------*/
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+    }
+    50%{
+        opacity:1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes slide {
+    from {
+        opacity: 0;
+    }
+    50%{
+        opacity:1;
+    }
+    to{
+        opacity: 100;
+    }
+}
+
+.minus{
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .target{
+        width: 60%;
+        height:94vh;
+        margin:2vh 20%;
+        .history{
+            div{
+                p{
+                    font-size: 2rem;
+                }
+                .bigNumber{
+                    font-size: 3.5rem;
+                }
+            }
+        }
+        .info{
+            p{
+                font-size: 2rem;
+            }
+        }
+
+    }
+    box2{
+        p{
+            font-size: 2rem;
+        }
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .message{
+        width: 80%;
+        margin-left:10%; 
+    }
+    .target{
+        width: 95%;
+        height:94vh;
+        margin:2vh 2.5%;
+        p{
+            font-size: 2.5rem;
+            line-height: 3rem;
+        }
+        ul > li{
+            font-size: 1.7rem;
+
+        }
+        a{
+            font-size: 2.2rem;
+            line-height: 5rem;
+        }
+        .gameRegister{
+            width:50%;
+        }
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .instructions{
+        .big{
+            font-size: 2.5rem;
+        }
+        p{
+            font-size: 1.5rem;
+            line-height: 3rem;
+        }
+        ul > li{
+            font-size: 1.7rem;
+            line-height: 2.7rem;
+            margin-top:1rem;
+            div{
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+        a{
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+        .gameRegister{
+            width:50%;
+        }
+        .minus{
+            font-size: 1.5rem;
+        }
+    }
+    .info{
+        p{
+            font-size: .5rem;
+            line-height: 2rem;
+        }
+        a{
+            line-height: 2;
+            font-size: 1.2rem;
+        }
+    }
+
+}
+
+
